@@ -34,11 +34,11 @@
 		C02434A91641F46D00F66475 /* shockedface2_half.png in Resources */ = {isa = PBXBuildFile; fileRef = C02434A61641F46D00F66475 /* shockedface2_half.png */; };
 		C02434AC1641F49700F66475 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C02434AB1641F49700F66475 /* RateView.m */; };
 		C02434AF1641F4AF00F66475 /* UIImageExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = C02434AE1641F4AF00F66475 /* UIImageExtras.m */; };
-		C0538A941644C7740021EBCA /* FullImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0538A931644C7740021EBCA /* FullImageViewController.m */; };
 		C0639BEF1643F6190034468B /* ScaryBugDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C0639BEE1643F6190034468B /* ScaryBugDatabase.m */; };
 		C0E89D841642715900F29A10 /* bug_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E89D831642715900F29A10 /* bug_logo.png */; };
 		C0E89D8A1642807500F29A10 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E89D891642807500F29A10 /* SVProgressHUD.m */; };
 		C0E89D8C164280C600F29A10 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E89D8B164280C600F29A10 /* QuartzCore.framework */; };
+		C0ED42301658A30200BCD645 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ED422F1658A30200BCD645 /* ImageScrollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,8 +79,6 @@
 		C02434AB1641F49700F66475 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateView.m; sourceTree = "<group>"; };
 		C02434AD1641F4AF00F66475 /* UIImageExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtras.h; sourceTree = "<group>"; };
 		C02434AE1641F4AF00F66475 /* UIImageExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtras.m; sourceTree = "<group>"; };
-		C0538A921644C7740021EBCA /* FullImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullImageViewController.h; sourceTree = "<group>"; };
-		C0538A931644C7740021EBCA /* FullImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullImageViewController.m; sourceTree = "<group>"; };
 		C0639BED1643F6190034468B /* ScaryBugDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaryBugDatabase.h; sourceTree = "<group>"; };
 		C0639BEE1643F6190034468B /* ScaryBugDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaryBugDatabase.m; sourceTree = "<group>"; };
 		C0E89D831642715900F29A10 /* bug_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bug_logo.png; path = ../../bug_logo.png; sourceTree = "<group>"; };
@@ -88,6 +86,8 @@
 		C0E89D881642807500F29A10 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		C0E89D891642807500F29A10 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		C0E89D8B164280C600F29A10 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C0ED422E1658A30200BCD645 /* ImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollViewController.h; sourceTree = "<group>"; };
+		C0ED422F1658A30200BCD645 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +165,8 @@
 		C01D498C16416AB100F7B363 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				C0ED422E1658A30200BCD645 /* ImageScrollViewController.h */,
+				C0ED422F1658A30200BCD645 /* ImageScrollViewController.m */,
 				C01D49751641631400F7B363 /* AppDelegate.h */,
 				C01D49761641631400F7B363 /* AppDelegate.m */,
 				C01D497E1641631400F7B363 /* MainStoryboard.storyboard */,
@@ -172,8 +174,6 @@
 				C01D49821641631400F7B363 /* MasterViewController.m */,
 				C01D49841641631400F7B363 /* DetailViewController.h */,
 				C01D49851641631400F7B363 /* DetailViewController.m */,
-				C0538A921644C7740021EBCA /* FullImageViewController.h */,
-				C0538A931644C7740021EBCA /* FullImageViewController.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -317,7 +317,7 @@
 				C02434AF1641F4AF00F66475 /* UIImageExtras.m in Sources */,
 				C0E89D8A1642807500F29A10 /* SVProgressHUD.m in Sources */,
 				C0639BEF1643F6190034468B /* ScaryBugDatabase.m in Sources */,
-				C0538A941644C7740021EBCA /* FullImageViewController.m in Sources */,
+				C0ED42301658A30200BCD645 /* ImageScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

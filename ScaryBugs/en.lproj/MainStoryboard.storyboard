@@ -109,37 +109,27 @@
                         <outlet property="labelTapTip" destination="OnT-ny-hLc" id="JJH-aP-J1c"/>
                         <outlet property="rateView" destination="Tv7-So-WSJ" id="zD4-NV-BAz"/>
                         <outlet property="titleField" destination="jem-99-Qky" id="juu-FP-9VO"/>
-                        <segue destination="yyP-Ay-cLG" kind="modal" identifier="ShowFullImage" modalTransitionStyle="flipHorizontal" id="WrF-Eg-bTu"/>
+                        <segue destination="HUs-Kr-HAr" kind="push" identifier="ShowFullImage" id="6xj-JG-ufa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="827" y="64"/>
         </scene>
-        <!--Full Image View Controller-->
-        <scene sceneID="fAQ-7y-PgJ">
+        <!--Image Scroll View Controller-->
+        <scene sceneID="mmL-uc-grw">
             <objects>
-                <viewController id="yyP-Ay-cLG" customClass="FullImageViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wx9-Nv-2kx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                <viewController id="HUs-Kr-HAr" customClass="ImageScrollViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K3h-Ww-hXs">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Cd8-hl-WvA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="imageView" destination="Cd8-hl-WvA" id="sdv-NK-cfE"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f2M-Dg-0vm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y5K-An-Fec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="64"/>
+            <point key="canvasLocation" x="1219" y="64"/>
         </scene>
     </scenes>
     <classes>
@@ -153,11 +143,8 @@
                 <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="FullImageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FullImageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
+        <class className="ImageScrollViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageScrollViewController.h"/>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>

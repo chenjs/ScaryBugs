@@ -12,7 +12,9 @@
 #import "RateView.h"
 #import "UIImageExtras.h"
 #import "SVProgressHUD.h"
-#import "FullImageViewController.h"
+//#import "FullImageViewController.h"
+#import "ImageScrollViewController.h"
+
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -168,7 +170,8 @@
 {
     if ([segue.identifier isEqualToString:@"ShowFullImage"]) {
         
-        FullImageViewController *controller = (FullImageViewController *)segue.destinationViewController;
+        //FullImageViewController *controller = (FullImageViewController *)segue.destinationViewController;
+        ImageScrollViewController *controller = (ImageScrollViewController *)segue.destinationViewController;
         controller.imageToDisplay = self.bugDoc.fullImage;
     }
 }
