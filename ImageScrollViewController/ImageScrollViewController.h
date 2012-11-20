@@ -10,7 +10,6 @@
 
 @interface ImageScrollViewController : UIViewController <UIScrollViewDelegate>
 
-@property (nonatomic, strong) UIImage *imageToDisplay;
-@property (nonatomic, assign) float maxScale;
+@property (nonatomic, strong) UIImage *image;
 
 @end

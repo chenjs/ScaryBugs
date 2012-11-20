@@ -35,10 +35,11 @@
 		C02434AC1641F49700F66475 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C02434AB1641F49700F66475 /* RateView.m */; };
 		C02434AF1641F4AF00F66475 /* UIImageExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = C02434AE1641F4AF00F66475 /* UIImageExtras.m */; };
 		C0639BEF1643F6190034468B /* ScaryBugDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C0639BEE1643F6190034468B /* ScaryBugDatabase.m */; };
+		C07F3385165BC42A002C0E38 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07F3383165BC42A002C0E38 /* ImageScrollViewController.m */; };
+		C07F3386165BC42A002C0E38 /* ScrollImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C07F3384165BC42A002C0E38 /* ScrollImage.png */; };
 		C0E89D841642715900F29A10 /* bug_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E89D831642715900F29A10 /* bug_logo.png */; };
 		C0E89D8A1642807500F29A10 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E89D891642807500F29A10 /* SVProgressHUD.m */; };
 		C0E89D8C164280C600F29A10 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E89D8B164280C600F29A10 /* QuartzCore.framework */; };
-		C0ED42301658A30200BCD645 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ED422F1658A30200BCD645 /* ImageScrollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,13 +82,14 @@
 		C02434AE1641F4AF00F66475 /* UIImageExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtras.m; sourceTree = "<group>"; };
 		C0639BED1643F6190034468B /* ScaryBugDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaryBugDatabase.h; sourceTree = "<group>"; };
 		C0639BEE1643F6190034468B /* ScaryBugDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaryBugDatabase.m; sourceTree = "<group>"; };
+		C07F3382165BC42A002C0E38 /* ImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollViewController.h; sourceTree = "<group>"; };
+		C07F3383165BC42A002C0E38 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
+		C07F3384165BC42A002C0E38 /* ScrollImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScrollImage.png; sourceTree = "<group>"; };
 		C0E89D831642715900F29A10 /* bug_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bug_logo.png; path = ../../bug_logo.png; sourceTree = "<group>"; };
 		C0E89D861642745100F29A10 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		C0E89D881642807500F29A10 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		C0E89D891642807500F29A10 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		C0E89D8B164280C600F29A10 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		C0ED422E1658A30200BCD645 /* ImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollViewController.h; sourceTree = "<group>"; };
-		C0ED422F1658A30200BCD645 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +138,8 @@
 		C01D496C1641631400F7B363 /* ScaryBugs */ = {
 			isa = PBXGroup;
 			children = (
+				C07F3381165BC42A002C0E38 /* ImageScrollViewController */,
 				C02434A31641F43E00F66475 /* Helpers */,
-				C02434AD1641F4AF00F66475 /* UIImageExtras.h */,
-				C02434AE1641F4AF00F66475 /* UIImageExtras.m */,
 				C02434A01641F43100F66475 /* Views */,
 				C01D49941641714C00F7B363 /* Images */,
 				C01D498C16416AB100F7B363 /* GUI */,
@@ -165,8 +166,6 @@
 		C01D498C16416AB100F7B363 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
-				C0ED422E1658A30200BCD645 /* ImageScrollViewController.h */,
-				C0ED422F1658A30200BCD645 /* ImageScrollViewController.m */,
 				C01D49751641631400F7B363 /* AppDelegate.h */,
 				C01D49761641631400F7B363 /* AppDelegate.m */,
 				C01D497E1641631400F7B363 /* MainStoryboard.storyboard */,
@@ -225,8 +224,21 @@
 		C02434A31641F43E00F66475 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C02434AD1641F4AF00F66475 /* UIImageExtras.h */,
+				C02434AE1641F4AF00F66475 /* UIImageExtras.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		C07F3381165BC42A002C0E38 /* ImageScrollViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C07F3382165BC42A002C0E38 /* ImageScrollViewController.h */,
+				C07F3383165BC42A002C0E38 /* ImageScrollViewController.m */,
+				C07F3384165BC42A002C0E38 /* ScrollImage.png */,
+			);
+			name = ImageScrollViewController;
+			path = ../ImageScrollViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +309,7 @@
 				C02434A81641F46D00F66475 /* shockedface2_full.png in Resources */,
 				C02434A91641F46D00F66475 /* shockedface2_half.png in Resources */,
 				C0E89D841642715900F29A10 /* bug_logo.png in Resources */,
+				C07F3386165BC42A002C0E38 /* ScrollImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +330,7 @@
 				C02434AF1641F4AF00F66475 /* UIImageExtras.m in Sources */,
 				C0E89D8A1642807500F29A10 /* SVProgressHUD.m in Sources */,
 				C0639BEF1643F6190034468B /* ScaryBugDatabase.m in Sources */,
-				C0ED42301658A30200BCD645 /* ImageScrollViewController.m in Sources */,
+				C07F3385165BC42A002C0E38 /* ImageScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

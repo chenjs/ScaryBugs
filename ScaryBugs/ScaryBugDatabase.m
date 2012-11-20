@@ -30,7 +30,7 @@
     
     // Get private docs dir
     NSString *documentsDirectory = [ScaryBugDatabase getPrivateDocsDir];
-    NSLog(@"Loading bugs from %@", documentsDirectory);
+    //NSLog(@"Loading bugs from %@", documentsDirectory);
     
     // Get contents of documents directory
     NSError *error;

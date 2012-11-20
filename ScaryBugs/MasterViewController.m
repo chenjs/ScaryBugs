@@ -35,8 +35,6 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewBugDoc:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    
-    self.title = @"Scray Bugs";
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,7 +52,7 @@
 
 - (void)addNewBugDoc:(id)sender
 {
-    ScaryBugDoc *newBugDoc = [[ScaryBugDoc alloc] initWithTitle:@"New Bug" rating:1 thumbImage:nil fullImage:nil];
+    ScaryBugDoc *newBugDoc = [[ScaryBugDoc alloc] initWithTitle:@"新照片" rating:1 thumbImage:nil fullImage:nil];
     [self.bugs addObject:newBugDoc];
     
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.bugs.count-1) inSection:0];

@@ -96,7 +96,12 @@
     //[self.imageView addGestureRecognizer:swipGestureRecognizer];
     [self.imageView addGestureRecognizer:tapGestureRecognizer];
     [self.imageView addGestureRecognizer:longPressGestureRecognizer];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -172,7 +177,7 @@
         
         //FullImageViewController *controller = (FullImageViewController *)segue.destinationViewController;
         ImageScrollViewController *controller = (ImageScrollViewController *)segue.destinationViewController;
-        controller.imageToDisplay = self.bugDoc.fullImage;
+        controller.image = self.bugDoc.fullImage;
     }
 }
 

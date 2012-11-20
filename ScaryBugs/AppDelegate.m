@@ -21,6 +21,7 @@
     MasterViewController *masterController = (MasterViewController *)[navigationController.viewControllers objectAtIndex:0];
 
     masterController.bugs = [ScaryBugDatabase loadScaryBugDocs];
+    [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     
     return YES;
 }

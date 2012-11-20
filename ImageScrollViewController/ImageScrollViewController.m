@@ -18,11 +18,13 @@
 - (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer;
 @end
 
-@implementation ImageScrollViewController
+@implementation ImageScrollViewController {
+    BOOL isStatusBarHidden;
+}
 
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
-@synthesize imageToDisplay = _imageToDisplay;
+@synthesize image = _image;
 
 
 - (void)centerScrollViewContents {
@@ -42,6 +44,19 @@
     }
     
     self.imageView.frame = contentsFrame;
+}
+
+- (void)scrollViewTapped:(UITapGestureRecognizer *)recognizer
+{
+    if (isStatusBarHidden) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        [self.navigationController.navigationBar setHidden:NO];
+    } else {
+        [self.navigationController.navigationBar setHidden:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    }
+    
+    isStatusBarHidden = !isStatusBarHidden;
 }
 
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
@@ -74,37 +89,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Set a nice title
-    self.title = @"Image";
+    self.title = @"照片";
     
-    self.scrollView = [[UIScrollView alloc] init];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    self.navigationController.navigationBar.translucent = YES;
+    isStatusBarHidden = NO;
+    
+    CGRect rectScrollView;
+    rectScrollView.origin.x = 0;
+    rectScrollView.origin.y = -20;
+    rectScrollView.size = self.view.bounds.size;
+    rectScrollView.size.height += 20;
+    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:rectScrollView];
     self.scrollView.backgroundColor = [UIColor blackColor];
     self.scrollView.autoresizesSubviews = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.clipsToBounds = YES;
     self.scrollView.delegate = self;
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.scrollView];
     
-    // Set up the image we want to scroll & zoom and add it to the scroll view
-    //UIImage *image = [UIImage imageNamed:@"photo1.png"];
-    //self.imageToDisplay = [UIImage imageNamed:@"xiling.jpg"];
-    
-    self.imageView = [[UIImageView alloc] initWithImage:self.imageToDisplay];
-    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size= self.imageToDisplay.size};
+    if (self.image == nil) {
+        self.image = [UIImage imageNamed:@"ScrollImage.png"];
+    }
+    self.imageView = [[UIImageView alloc] initWithImage:self.image];
+    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size= self.image.size};
     self.imageView.backgroundColor = [UIColor redColor];
     
     [self.scrollView addSubview:self.imageView];
     
     // Tell the scroll view the size of the contents
-    self.scrollView.contentSize = self.imageToDisplay.size;
+    self.scrollView.contentSize = self.image.size;
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.numberOfTouchesRequired = 1;
+    [self.scrollView addGestureRecognizer:tapRecognizer];
     
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
     doubleTapRecognizer.numberOfTapsRequired = 2;
     doubleTapRecognizer.numberOfTouchesRequired = 1;
     [self.scrollView addGestureRecognizer:doubleTapRecognizer];
+    
+    [tapRecognizer requireGestureRecognizerToFail:doubleTapRecognizer];
     
     UITapGestureRecognizer *twoFingerTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTwoFingerTapped:)];
     twoFingerTapRecognizer.numberOfTapsRequired = 1;
@@ -114,8 +143,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    self.scrollView.frame = self.view.frame;
     
     // Set up the minimum & maximum zoom scales
     CGRect scrollViewFrame = self.scrollView.frame;
@@ -134,7 +161,7 @@
 - (void)reinitScrollView
 {
     // Tell the scroll view the size of the contents
-    self.scrollView.contentSize = self.imageToDisplay.size;
+    self.scrollView.contentSize = self.image.size;
     
     // Set up the minimum & maximum zoom scales
     CGRect scrollViewFrame = self.scrollView.frame;
@@ -162,20 +189,15 @@
 {
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     
-    if (UIDeviceOrientationIsLandscape(toInterfaceOrientation)) {
-        [self.navigationController setNavigationBarHidden:YES];
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    } else {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-        [self.navigationController setNavigationBarHidden:NO];
-    }
+    [self.navigationController.navigationBar setHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-
     [self reinitScrollView];
+
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 
 - (UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView {
