@@ -50,13 +50,29 @@
 {
     if (isStatusBarHidden) {
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
-        [self.navigationController.navigationBar setHidden:NO];
+        [self showNavigationBar];
     } else {
-        [self.navigationController.navigationBar setHidden:YES];
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
+        [self.navigationController.navigationBar setHidden:YES];
     }
     
     isStatusBarHidden = !isStatusBarHidden;
+}
+
+- (void)showNavigationBar
+{
+    [self.navigationController.navigationBar setHidden:NO];
+
+    CGRect rectNavigationBar = self.navigationController.navigationBar.frame;
+    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+    CGFloat statusBarHeight = MIN(statusBarFrame.size.height, statusBarFrame.size.width);
+    rectNavigationBar.origin.y = statusBarHeight;
+    self.navigationController.navigationBar.frame = rectNavigationBar;
+}
+
+- (void)hideNavigationBar
+{
+    [self.navigationController.navigationBar setHidden:YES];
 }
 
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
@@ -189,8 +205,8 @@
 {
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     
-    [self.navigationController.navigationBar setHidden:NO];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    //[self.navigationController.navigationBar setHidden:NO];
+    //[[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
